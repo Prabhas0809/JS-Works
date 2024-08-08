@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .home{
+          background-color: white;
+          border-color: rgb(41, 118, 211);
+          border-style: solid;
+          border-width: 1px;
+          color: rgb(41, 118, 211);
+          height: 36px;
+          width: 62px;
+          margin-left: 50px;
+          font-weight: bold;
+          border-radius: 2px;
+          cursor: pointer;
+          transition: background-color 0.15s,
+          color 0.15s;
+          position: fixed;
+          top: 30px
+        }
+      
+        .home:hover {
+          background-color: rgb(41, 118, 211);
+          color: white;
+        }
+      
+        .home:active {
+          opacity: 0.7;
+        }
+        .row{
+            height: 800px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        .card{
+            height: 400px;
+            width: 500px;
+            background-color: whitesmoke;
+            border: 2px solid black;
+            border-radius: 30px;
+            margin-left: 600px;
+        }
+        .card h1{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            text-decoration: underline;
+            text-align: center;
+            letter-spacing: 1px;
+        }
+        .card input{
+            border: none;
+            border-bottom: 2px solid black;
+            height: 30px;
+            width: 300px;
+            margin-left: 100px;
+        }
+        .card p{
+            font-weight: bold;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: medium;
+            margin-left: 100px;
+
+        }
+        .btn{
+          background-color: white;
+          border-color: rgb(41, 118, 211);
+          border-style: solid;
+          border-width: 1px;
+          color: rgb(41, 118, 211);
+          height: 46px;
+          width: 72px;
+          margin-left: 350px;
+          margin-top: 40px;
+          font-weight: bold;
+          border-radius: 30px;
+          cursor: pointer;
+        }
+        .btn:hover{
+            background-color: rgb(41, 118, 211);
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="transaction.html"><button class="home">back</button></a>
+     </div>
+     <div class="container">
+        <div class="row">
+            <div class="card">
+                <h1>Debit</h1>
+                <input type="number"placeholder="Enter Account Number"/>
+                <input type="number"placeholder="Enter The Amount ₹"id="amount"/>
+                <p>Current Account Balance : ₹50000</p>
+                <button class="btn">Debit</button>
+            </div>
+        </div>
+     </div>
+     <script>
+         let btn = document.querySelector(".btn");
+        btn.addEventListener("click", function() {
+            let y = prompt("Enter Your 4 digit Pin");
+            if (y === "1234") {
+                let x = document.getElementById("amount").value;
+                let xvalue = parseInt(x);
+                const z = xvalue - 50000;
+                    if (xvalue <= 50000) {
+                        alert("Amount is Credited To Your Account\nYour Current Balance: ₹" + z);
+                    } 
+                    else if(xvalue >= 50000){
+                        alert("Insufficient balance. Please check balance and withdraw cash!");
+                    }
+                    }
+                    else if (y === "") {
+                        alert("Please enter your PIN");
+                    } 
+                    else {
+                        alert("Incorrect PIN. Please try again.");
+                    }
+            });
+     </script>
+</body>
+</html>
